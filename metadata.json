@@ -1,0 +1,6 @@
+{
+  "name": "Aegis AppLock",
+  "description": "A secure, open-source, Material 3 application locker featuring local encryption, local backup, activity logging, and accessibility-based foreground application protection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

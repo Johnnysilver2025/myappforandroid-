@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Aegis AppLock</string>
+    <string name="accessibility_service_description">Protects your apps by showing a secure lock screen overlay when a protected application is opened.</string>
+</resources>
