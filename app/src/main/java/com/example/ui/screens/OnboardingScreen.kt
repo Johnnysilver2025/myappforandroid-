@@ -53,6 +53,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -372,9 +373,9 @@ fun CreatePasswordStep(
     errorMsg: String?,
     onPasswordSaved: (String) -> Boolean
 ) {
-    var pass1 by remember { mutableStateOf("") }
-    var pass2 by remember { mutableStateOf("") }
-    var stepConfirm by remember { mutableStateOf(false) }
+    var pass1 by rememberSaveable { mutableStateOf("") }
+    var pass2 by rememberSaveable { mutableStateOf("") }
+    var stepConfirm by rememberSaveable { mutableStateOf(false) }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -472,9 +473,9 @@ fun SecurityQuestionStep(
     errorMsg: String?,
     onSaved: (Int, String) -> Unit
 ) {
-    var expanded by remember { mutableStateOf(false) }
-    var selectedIndex by remember { mutableStateOf(0) }
-    var answer by remember { mutableStateOf("") }
+    var expanded by rememberSaveable { mutableStateOf(false) }
+    var selectedIndex by rememberSaveable { mutableStateOf(0) }
+    var answer by rememberSaveable { mutableStateOf("") }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,

@@ -49,6 +49,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -636,7 +637,7 @@ fun RecoveryView(
     onRecoveryAnswered: (String) -> Unit,
     onCancel: () -> Unit
 ) {
-    var answer by remember { mutableStateOf("") }
+    var answer by rememberSaveable { mutableStateOf("") }
 
     Column(
         modifier = Modifier

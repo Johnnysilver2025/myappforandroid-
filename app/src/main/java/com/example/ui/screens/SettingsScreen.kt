@@ -63,6 +63,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -107,9 +108,9 @@ fun SettingsScreen(
     val activityLogs by viewModel.activityLogs.collectAsStateWithLifecycle()
 
     // Dialog flags
-    var showBackupExportDialog by remember { mutableStateOf(false) }
-    var showBackupImportDialog by remember { mutableStateOf(false) }
-    var showActivityLogDialog by remember { mutableStateOf(false) }
+    var showBackupExportDialog by rememberSaveable { mutableStateOf(false) }
+    var showBackupImportDialog by rememberSaveable { mutableStateOf(false) }
+    var showActivityLogDialog by rememberSaveable { mutableStateOf(false) }
 
     // Export payload monitor
     val backupString by viewModel.backupString.collectAsStateWithLifecycle()
@@ -223,7 +224,7 @@ fun SettingsScreen(
                     }
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    var behaviorMenuExpanded by remember { mutableStateOf(false) }
+                    var behaviorMenuExpanded by rememberSaveable { mutableStateOf(false) }
                     val behaviorOptions = listOf("IMMEDIATELY", "SCREEN_OFF", "CUSTOM_DELAY")
                     val behaviorLabels = mapOf(
                         "IMMEDIATELY" to "Lock Immediately",
@@ -424,7 +425,7 @@ fun SettingsScreen(
 
     // IMPORT BACKUP DIALOG
     if (showBackupImportDialog) {
-        var importInput by remember { mutableStateOf("") }
+        var importInput by rememberSaveable { mutableStateOf("") }
         
         // Monitor success
         LaunchedEffect(importStatus) {

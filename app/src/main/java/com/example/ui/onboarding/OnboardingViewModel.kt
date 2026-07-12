@@ -8,6 +8,7 @@ import com.example.security.HashUtils
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -82,7 +83,7 @@ class OnboardingViewModel(
         }
 
         viewModelScope.launch {
-            val salt = HashUtils.generateSalt() // we can generate or reuse
+            val salt = repository.passwordSalt.first() ?: HashUtils.generateSalt()
             val answerHash = HashUtils.hashPassword(answer.trim().lowercase(), salt)
             
             // Set details
